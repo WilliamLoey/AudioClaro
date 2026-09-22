@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AudioClaro organiza áudios de trabalho em resumo, tarefas, prazos e resposta sugerida. Protótipo acadêmico de validação de produto.">
+  <meta name="theme-color" content="#123047">
+  <title>AudioClaro | Validação de produto</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23123047'/%3E%3Cpath d='M15 33h7l5-13 9 26 5-13h8' fill='none' stroke='%2356d2c5' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#experimento">Ir para o experimento</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#inicio" aria-label="AudioClaro, início">
+        <span class="brand-mark" aria-hidden="true"><span></span><i></i><b></b></span>
+        <span>AudioClaro</span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#experimento">Participar</a>
+        <a href="#resultados">Resultados</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="intro shell" aria-labelledby="titulo-principal">
+      <div class="intro-copy">
+        <p class="eyebrow">Protótipo de Product Discovery</p>
+        <h1 id="titulo-principal">Do áudio ao próximo passo</h1>
+        <p class="lede">O AudioClaro transforma mensagens de voz de trabalho em um resumo curto, tarefas, prazos e uma resposta sugerida para revisão.</p>
+        <div class="intro-actions">
+          <a class="button primary" href="#experimento">Começar entrevista</a>
+          <a class="button ghost" href="#como-funciona">Entender o teste</a>
+        </div>
+        <p class="research-note"><strong>Este é um experimento acadêmico.</strong> Ainda não é um produto comercial e não processa áudios reais nesta página.</p>
+      </div>
+
+      <article class="sample" aria-label="Exemplo de saída do AudioClaro">
+        <div class="sample-top">
+          <span class="sample-label">Exemplo de saída</span>
+          <span class="duration">01:42</span>
+        </div>
+        <div class="wave" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <dl>
+          <div><dt>Resumo</dt><dd>Cliente confirmou a entrega e solicitou mudança no horário.</dd></div>
+          <div><dt>Tarefas</dt><dd>Atualizar agenda e confirmar o novo horário.</dd></div>
+          <div><dt>Prazo</dt><dd>Sexta-feira, às 14h.</dd></div>
+          <div><dt>Resposta sugerida</dt><dd>“Combinado. Atualizei para sexta-feira às 14h.”</dd></div>
+        </dl>
+      </article>
+    </section>
+
+    <section id="como-funciona" class="process-section">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow">Como funciona o teste</p>
+          <h2>Primeiro o problema. Depois a solução.</h2>
+          <p>A entrevista leva de 15 a 20 minutos e procura comportamentos reais, não apenas opiniões sobre a ideia.</p>
+        </div>
+        <ol class="steps">
+          <li><span>01</span><h3>Conte uma situação</h3><p>Descreva a última vez em que precisou voltar a um áudio para localizar uma informação.</p></li>
+          <li><span>02</span><h3>Observe o exemplo</h3><p>Compare a transcrição comum com a saída organizada em ações e prazos.</p></li>
+          <li><span>03</span><h3>Demonstre interesse</h3><p>Registre se usaria novamente e quais condições aumentariam sua confiança.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="experimento" class="experiment shell" aria-labelledby="titulo-formulario">
+      <div class="form-heading">
+        <p class="eyebrow">Entrevista guiada</p>
+        <h2 id="titulo-formulario">Registrar uma validação</h2>
+        <p>Faça as perguntas na ordem apresentada. Mostre o exemplo da solução apenas quando chegar à segunda etapa.</p>
+      </div>
+
+      <form id="validation-form" novalidate>
+        <div class="progress-wrap" aria-label="Progresso do formulário">
+          <div class="progress-meta"><span id="step-name">Etapa 1 de 3</span><span id="progress-value">33%</span></div>
+          <div class="progress-track"><span id="progress-bar"></span></div>
+        </div>
+
+        <div class="form-error" id="form-error" role="alert" hidden></div>
+
+        <fieldset class="form-step active" data-step="1">
+          <legend>Perfil e comportamento</legend>
+          <div class="field-grid two">
+            <label>Código do participante
+              <input name="participant_code" placeholder="Ex.: P1" autocomplete="off" required maxlength="12">
+              <small>Use um código, não o nome da pessoa.</small>
+            </label>
+            <label>Atividade profissional
+              <input name="activity" placeholder="Ex.: manicure autônoma" required maxlength="80">
+            </label>
+          </div>
+          <label>Quantos áudios de trabalho recebe em um dia típico?
+            <select name="audios_per_day" required>
+              <option value="">Selecione uma faixa</option>
+              <option>0 a 2</option><option>3 a 5</option><option>6 a 10</option><option>Mais de 10</option>
+            </select>
+          </label>
+          <label>Conte a última situação em que precisou voltar a um áudio para localizar ou lembrar uma informação.
+            <textarea name="recent_episode" rows="4" required maxlength="900"></textarea>
+          </label>
+          <label>Qual foi o impacto ou consequência dessa situação?
+            <textarea name="impact" rows="3" required maxlength="700"></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset class="form-step" data-step="2" hidden>
+          <legend>Avaliação da solução</legend>
+          <p class="instruction">Agora apresente o exemplo de saída do AudioClaro e compare-o com uma transcrição simples.</p>
+          <div class="choice-group">
+            <span class="question">A pessoa prefere a saída estruturada?</span>
+            <label><input type="radio" name="preference" value="sim" required> Sim</label>
+            <label><input type="radio" name="preference" value="nao"> Não</label>
+            <label><input type="radio" name="preference" value="depende"> Depende</label>
+          </div>
+          <label>O que foi útil e o que ficou faltando?
+            <textarea name="feedback" rows="4" required maxlength="900"></textarea>
+          </label>
+          <div class="choice-group">
+            <span class="question">A pessoa enviaria um segundo áudio ou entraria na lista de espera?</span>
+            <label><input type="radio" name="second_action" value="sim" required> Sim</label>
+            <label><input type="radio" name="second_action" value="nao"> Não</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-step" data-step="3" hidden>
+          <legend>Confiança e fechamento</legend>
+          <div class="choice-group">
+            <span class="question">A pessoa usaria o fluxo se pudesse revisar e apagar o conteúdo?</span>
+            <label><input type="radio" name="confidence" value="sim" required> Sim</label>
+            <label><input type="radio" name="confidence" value="nao"> Não</label>
+            <label><input type="radio" name="confidence" value="depende"> Depende</label>
+          </div>
+          <label>Qual é a principal preocupação ou condição para usar?
+            <textarea name="concern" rows="4" required maxlength="900"></textarea>
+          </label>
+          <label>Observações do entrevistador
+            <textarea name="notes" rows="3" maxlength="900"></textarea>
+          </label>
+          <label class="consent"><input type="checkbox" name="consent" value="true" required> Confirmo que não registrei dados sensíveis e que qualquer evidência visual foi autorizada.</label>
+          <label class="honeypot" aria-hidden="true">Não preencha este campo<input name="website" tabindex="-1" autocomplete="off"></label>
+        </fieldset>
+
+        <div class="form-actions">
+          <button class="button ghost" type="button" id="previous" hidden>Voltar</button>
+          <button class="button primary" type="button" id="next">Continuar</button>
+          <button class="button primary" type="submit" id="save" hidden>Salvar validação</button>
+        </div>
+        <p class="save-status" id="save-status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="resultados" class="results-section">
+      <div class="shell">
+        <div class="results-heading">
+          <div><p class="eyebrow">Evidências coletadas</p><h2>Resultados da validação</h2><p>Os indicadores são atualizados com as respostas salvas no banco. Os relatos individuais exigem acesso administrativo.</p></div>
+          <div class="api-status"><span id="connection-dot" aria-hidden="true"></span><span id="connection-status">Conectando</span></div>
+        </div>
+        <div class="metrics" aria-label="Resumo das respostas">
+          <article><span id="metric-total">0</span><p>participantes</p></article>
+          <article><span id="metric-problem">0%</span><p>com episódio registrado</p></article>
+          <article><span id="metric-preference">0%</span><p>preferem a saída</p></article>
+          <article><span id="metric-action">0%</span><p>realizaram ação</p></article>
+        </div>
+        <div class="admin-access">
+          <label>Senha administrativa
+            <input id="admin-token" type="password" autocomplete="current-password" placeholder="ADMIN_TOKEN">
+          </label>
+          <button class="button primary" id="load-admin" type="button">Acessar respostas</button>
+          <button class="button ghost" id="export-csv" type="button" disabled>Exportar CSV</button>
+          <p id="admin-status" aria-live="polite"></p>
+        </div>
+        <div class="table-wrap" id="admin-table" hidden>
+          <table>
+            <thead><tr><th>Participante</th><th>Atividade</th><th>Áudios/dia</th><th>Preferência</th><th>Ação</th><th>Confiança</th><th></th></tr></thead>
+            <tbody id="result-rows"><tr class="empty-row"><td colspan="7">Informe a senha administrativa.</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="privacy shell" aria-labelledby="privacidade">
+      <div><p class="eyebrow">Privacidade</p><h2 id="privacidade">Colete apenas o necessário</h2></div>
+      <p>Não registre nomes de clientes, telefones, valores confidenciais ou outros dados sensíveis. Use códigos como P1 e P2. Áudios e capturas só devem ser guardados com autorização explícita.</p>
+    </section>
+  </main>
+
+  <footer><div class="shell"><span>AudioClaro</span><p>Protótipo acadêmico de validação de produto com IA.</p></div></footer>
+
+</body>
+</html>
